@@ -10,4 +10,10 @@ public class Account {
             balance += amount;
         }
     }
+
+    public void withdraw(int amount) {
+            if(amount > 0.0 && amount <= balance){
+            balance -= amount;
+        }
+    }
 }

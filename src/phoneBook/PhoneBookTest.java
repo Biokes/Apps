@@ -29,5 +29,10 @@ public class PhoneBookTest {
         assertFalse(phoneBook.isNumberValid(numberGiven));
 
     }
+    @Test
+    void testIfNumberOIsValid(){
+        String numberGiven = "5671890";
+        assertFalse(phoneBook.isNumberValid(numberGiven));
+    }
 
 }

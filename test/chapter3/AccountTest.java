@@ -27,5 +27,31 @@ public class AccountTest {
         biokesAccount.deposit(4000);
         assertEquals(6000, biokesAccount.getBalance());
     }
-  //  public
+    @Test
+    public void withdrawNegativeAmount(){
+        Account biokesAccount = new Account();
+        biokesAccount.withdraw(-900);
+        assertEquals(0,biokesAccount.getBalance());
+    }
+    @Test
+    public void withdrawAmountGreaterThanBalance(){
+        Account biokesAccount = new Account();
+        biokesAccount.withdraw(120);
+        assertEquals(0,biokesAccount.getBalance());
+    }
+    @Test
+    public void withdrawAmountAllBalanace(){
+        Account biokesAccount = new Account();
+        biokesAccount.deposit(120);
+        biokesAccount.withdraw(120);
+        assertEquals(0,biokesAccount.getBalance());
+    }
+    @Test
+    public void withdrawAmountLesserThanBalanaceTwice(){
+        Account biokesAccount = new Account();
+        biokesAccount.deposit(120);
+        biokesAccount.withdraw(100);
+        biokesAccount.withdraw(10);
+        assertEquals(10,biokesAccount.getBalance());
+    }
 }
