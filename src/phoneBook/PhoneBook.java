@@ -11,7 +11,7 @@ public class PhoneBook {
     public int searchByName(String name) {
         int returnValue;
         for (int count = 0; count < contactNames.size(); count++) {
-            if (name.equalsIgnoreCase(contactNames.get(count))) {
+            if (name.equals(contactNames.get(count))) {
                 returnValue = count;
                 return returnValue;
             }
@@ -42,7 +42,7 @@ public class PhoneBook {
         }
 
         return true;
-    }
+        }
 
     public boolean isNumberValid(String number) {
         for (int count = 0; count < number.length(); count++) {
@@ -71,8 +71,8 @@ public class PhoneBook {
         }
     }
 
-    public String deleteNumber(String numberToBeDeleted) {
-        int index = searchByName(numberToBeDeleted);
+    public String deleteNumber(String nameToBeDeleted) {
+        int index = searchByName(nameToBeDeleted);
         if (index == -1) {
             return "no match to the name entered\uD83D\uDE12\uD83D\uDE12";
         } else {
@@ -95,12 +95,12 @@ public class PhoneBook {
         boolean condition = false;
         while (!condition) {
             String values = """
-                    \n----------PhoneBook Menu---------
+                    \n---------->> ☎️📞PhoneBook Menu☎️📞 <<<---------
                     1. Create new contact
                     2. Display numbers
                     3. Delete number
                     4. Exit
-                    ------->>Enter your option:------->>>""";
+                    ------->>Enter your option: ☺️☺️☺️------->>>""";
             System.out.println(values);
             int optionChoice = input.nextInt();
             switch (optionChoice) {
@@ -115,17 +115,16 @@ public class PhoneBook {
                     String numberToBeDeleted = input.next();
                     System.out.println(deleteNumber(numberToBeDeleted));
                 case 4:
-                    System.out.println("Exiting..........");
+                    System.out.println("Exiting..... 🚶🚶🚶");
                     condition = true;
                     break;
                 default:
-                    System.out.println("you entered a wrong input");
+                    System.out.println("you entered a wrong input 😡😡");
             }
 
         }
 
     }
-
     public void displayContacts() {
         sortNames();
         for (int iterator = 0; iterator < contactNames.size(); iterator++) {
