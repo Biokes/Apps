@@ -25,6 +25,11 @@ public class ArrayList {
             }
         return element[index];
     }
+    private String[] reduceArray(){
+
+        return new String[size-1];
+    }
+
     private String[] createNewArray(){
 
         return new String [++size];
@@ -56,13 +61,21 @@ public class ArrayList {
 
     public void removeElement(String name) {
         String [] temp = reduceArray();
-        for(int counter = 0; counter < size; counter++){
-            if(name.equals(element[counter]))
-                continue;
+        for(int counter = 0, count = 0; counter < size; counter++){
+              if(element[counter] != "name")
+                  temp[count++] = element[counter] ;
         }
+        element = temp;
+        size--;
     }
-    private String[] reduceArray(){
 
-        return new String[size-1];
+    public void clear() {
+        String [] element = new String [0];
+        this.element = element;
+        size = element.length;
+    }
+
+    public int size() {
+        return size;
     }
 }
