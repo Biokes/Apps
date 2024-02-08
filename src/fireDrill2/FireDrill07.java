@@ -1,16 +1,13 @@
 package fireDrill2;
-
-
 import java.util.ArrayList;
-
 public class FireDrill07 {
     private static final java.util.Scanner input = new java.util.Scanner(System.in);
     public static void adjascentAsterisks(){
-        ArrayList<Integer> userInputs = new ArrayList<Integer>();
+        ArrayList<Integer> userInputs = new ArrayList<>();
 
         int number =1;
         while(number!= 22) {
-            System.out.println("Enter a number and enter 22 to stop: ");
+            System.out.println("Enter a number betwwen 1 and 15 (inclusive) and enter 22 to stop: ");
             number = input.nextInt();
             while((number< 1 || number > 15) && number != 22){
                 System.out.println("Enter a valid number and enter 22 to stop!!!!!: ");
