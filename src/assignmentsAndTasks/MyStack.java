@@ -32,8 +32,17 @@ public class MyStack {
         return "Stack is empty";
     }
 
-    public void pop(String name) {
+    public void pop() {
         if(nextVacant ==0 )
             throw new RuntimeException("Stack UnderFlow.");
+        stack[nextVacant-1] = null;
+    }
+
+    public Object search(String name) {
+        for(int count = nextVacant-1; count-- > 0;){
+            if(name.equals(stack[count]))
+                return count+1;
+        }
+        return String.format("%s not found",name);
     }
 }
