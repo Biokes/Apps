@@ -1,4 +1,4 @@
-package chapter3;
+package assignmentsAndTasks;
 
 public class AirCondition {
     public boolean airConditionStatus;

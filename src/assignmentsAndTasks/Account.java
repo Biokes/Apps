@@ -1,4 +1,4 @@
-package chapter3;
+package assignmentsAndTasks;
 
 public class Account {
     private int balance;
