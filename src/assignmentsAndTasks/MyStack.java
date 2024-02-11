@@ -22,11 +22,8 @@ public class MyStack {
         for(int counter = stack.length-1; counter >= 0; counter-- ){
             if(stack[counter] == null)
                 continue;
-            else {
                 output = stack[counter];
                 return output;
-            }
-
-        }        return output;
+        }        return "Stack is empty";
     }
 }
