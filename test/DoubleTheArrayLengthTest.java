@@ -19,6 +19,7 @@ public class DoubleTheArrayLengthTest {
     }
     @Test
     void testThatICanReturnDoubleTheElementsValueAndReplaceThem(){
+
         assertArrayEquals(new int[]{4, 5, 8, 8, 10, 16},doubleArrayLength.getDoubled(new int[]{4,5,8}));
     }
 }

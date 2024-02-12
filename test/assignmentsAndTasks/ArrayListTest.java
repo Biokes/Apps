@@ -1,4 +1,4 @@
-package chapter3;
+package assignmentsAndTasks;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -128,6 +128,7 @@ public class ArrayListTest {
     }
     @Test
     void testGetSize(){
+
         assertEquals(0,arrayList.size());
     }
     @Test
