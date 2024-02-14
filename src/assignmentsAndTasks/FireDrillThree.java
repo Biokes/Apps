@@ -1,7 +1,9 @@
 package assignmentsAndTasks;
 import java.util.ArrayList;
 public class FireDrillThree {
-    public static int[] taskOne(int num1, int num2, int num3,int num4, int num5, int num6, int num8, int num7,int num9,int num10){
+    public static int[] taskOne(int num1, int num2,
+                                int num3,int num4, int num5, int num6,
+                                int num8, int num7,int num9,int num10){
         int[]  numbers = new int[10];
         numbers [0] = num1;
         numbers [1] = num2;
@@ -166,5 +168,27 @@ public class FireDrillThree {
             }
         }
         return numbers;
+    }
+    public static String taskSeventeen(String input1, String input2){
+        char []  temp1 = input1.toCharArray();
+        char []  temp2 = input2.toCharArray();
+        String output = "";
+        char variable1 = temp1[0];
+        char variable2 = temp1[1];
+        char variable3 = temp2[0];
+        char variable4 = temp2[1];
+        temp1[0] = variable3;
+        temp1[1] = variable4;
+        temp2[0] = variable1;
+        temp2[1] = variable2;
+        output = String.format("%s %s",(new String(temp1)),(new String(temp2)));
+        return output;
+    }
+
+    public static int[] taskEighteen(int[] given) {
+        for(int count = 0; count < given.length; count++){
+            given[count] = given[count]%2;
+        }
+        return given;
     }
 }

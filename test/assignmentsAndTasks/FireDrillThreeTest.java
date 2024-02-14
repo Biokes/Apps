@@ -109,4 +109,17 @@ public class FireDrillThreeTest {
         int [] expected  = {2,1,4,4,6,5,8,7,0,9};
         assertArrayEquals(expected,FireDrillThree.taskSixteen(given));
     }
+    @Test
+    void testTaskSeventeen(){
+        String given1 = "name";
+        String name2 = "wear";
+       String expected  = "weme naar";
+        assertEquals(expected,FireDrillThree.taskSeventeen(given1, name2));
+    }
+    @Test
+    void testThatOddsAreRepalcedWithZerosAndEvensAreReplacedWithOnes(){
+        int [] given = {4,5,8,8,8,2,9};
+        int [] expected = {0,1,0,0,0,0,1};
+        assertArrayEquals(expected, FireDrillThree.taskEighteen(given));
+    }
 }

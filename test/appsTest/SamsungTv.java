@@ -1,3 +1,5 @@
+package appsTest;
+
 public class SamsungTv {
     private boolean isOn;
     private int volume;

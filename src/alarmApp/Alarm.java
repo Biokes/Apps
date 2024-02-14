@@ -1,5 +1,10 @@
 package alarmApp;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
+import java.io.File;
 import java.time.LocalTime;
+
 
 public class Alarm {
     private LocalTime timerCounter = LocalTime.now();
@@ -46,6 +51,34 @@ public class Alarm {
             return true;
 
         return false;
+    }
+    public void ring(){
+        try{
+            File song = new File("C:\\Users\\DELL\\Downloads\1e745130-695b-40b2-b725-8e8e1c3c6082.wav");
+            if(song.exists()) {
+                Clip audio = AudioSystem.getClip();
+                audio.open();
+                audio.start();
+                JOptionPane.showInputDialog(null,"preass okay to stop ALARM");
+                }
+
+
+        }catch(Exception exception){
+
+            throw new IllegalArgumentException("invalid number");
+        }
+    }
+    public void alarmClock(){
+
+        setTimer(1);
+        int count =0;
+        while(!timerCounter.equals(timeToBeep)){
+            System.out.println(count++);
+            }
+        if(timerCounter.equals(timeToBeep)){
+            System.out.println("Alarm time out!!!!!!!");
+            ring();
+        }
     }
 
 }
