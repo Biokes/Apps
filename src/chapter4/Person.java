@@ -6,9 +6,9 @@ import java.util.List;
 public class Person {
     private boolean isSolved;
     private List<Problem> problemList = new ArrayList<>() ;
-    public void add(Problem problem) {
+    public void add(Problem problem){
 
-        this.problemList.add(problem);
+       problemList.add(problem);
     }
     public String reCountProblems(){
         String output = "";
@@ -18,12 +18,15 @@ public class Person {
        return output;
     }
     public boolean isSolved(Problem problem){
-        boolean isSolved = false;
             for(Problem probs : problemList){
                 isSolved = problem.equals(probs);
                 if(isSolved) return false;
             }
         return true;
+    }
+    public void solveProblem(Problem problem){
+        if(problemList.contains(problem))problemList.remove(problem);
+        else throw new IllegalArgumentException("Problem does not Exist in problem List.");
     }
 
 }

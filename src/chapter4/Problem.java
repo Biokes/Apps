@@ -10,14 +10,13 @@ public class Problem {
 
 
     public String getName() {
+
         return name;
     }
 
     public Type getType() {
+
         return type;
     }
 
-    public void isSolved() {
-
-    }
 }

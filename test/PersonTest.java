@@ -58,7 +58,8 @@ public class PersonTest {
                 no money -> EDUCATION
                 """;
         assertEquals(expected, person.reCountProblems());
-        person.isSolved(prob1);
+        assertFalse(person.isSolved(prob1));
+        assertEquals(expected, person.reCountProblems());
     }
     @Test
     void testCheck_ifProblemIsSolved(){
@@ -66,8 +67,7 @@ public class PersonTest {
         Problem prob1 = new Problem("no money", Type.EDUCATION);
         person.add(prob1);
         assertFalse(person.isSolved(prob1));
+
     }
 
-//    @Test
-//    void test
 }
