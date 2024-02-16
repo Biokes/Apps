@@ -117,9 +117,16 @@ public class FireDrillThreeTest {
         assertEquals(expected,FireDrillThree.taskSeventeen(given1, name2));
     }
     @Test
-    void testThatOddsAreRepalcedWithZerosAndEvensAreReplacedWithOnes(){
+    void testThatOddsAreReplacedWithZerosAndEvensAreReplacedWithOnes(){
         int [] given = {4,5,8,8,8,2,9};
         int [] expected = {0,1,0,0,0,0,1};
         assertArrayEquals(expected, FireDrillThree.taskEighteen(given));
     }
+    @Test
+    void testThatOddsAreReplaceWithZerosAndEvensAreReplacedWithTrueAndFalse() {
+        int [] given = {4,5,8,8,8,2,9};
+        boolean [] expected = {false,true,false,false,false,false,true};
+        assertArrayEquals(expected, FireDrillThree.taskNineteen(given));
+    }
+
 }

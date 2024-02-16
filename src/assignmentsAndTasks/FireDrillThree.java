@@ -191,4 +191,16 @@ public class FireDrillThree {
         }
         return given;
     }
+
+    public static boolean[] taskNineteen(int[] given) {
+        boolean [] output = new boolean [given.length];
+        for(int counter = 0; counter < given.length; counter++ ){
+            output[counter] = given[counter] % 2 !=0;
+        }
+        return output;
+    }
+    public static int[] taskTwenty(int [] number){
+
+        return new int [10];
+    }
 }
