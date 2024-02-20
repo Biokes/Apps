@@ -8,7 +8,7 @@ public enum GeoZones {
     SOUTH_WEST("Ekiti", "Lagos", "Osun", "Ondo", "Ogun", "Oyo"),
     SOUTH_EAST("Abia", "Anambra", "Ebonyi", "Enugu", "Imo");
 
-   private  String [] zone;
+   private final String [] zone;
 
 
     GeoZones(String ... states) {
@@ -20,33 +20,27 @@ public enum GeoZones {
     }
 
     public String checkState(String state) {
-        String northCentral[] = NORTH_CENTRAL.zone;
-        String southEast[] = SOUTH_EAST.zone;
-        String southSouth[] = SOUTH_SOUTH.zone;
-        String [] southWest = SOUTH_WEST.zone;
-        String [] northEast = NORTH_EAST.zone;
-        String [] northWest = NORTH_WEST.zone;
-        for(String states : northCentral){
+        for(String states : NORTH_CENTRAL.zone){
             if(state.equalsIgnoreCase(states))
                 return "You are from North Central.";
         }
-        for(String states : southEast){
+        for(String states : SOUTH_EAST.zone){
             if(state.equalsIgnoreCase(states))
                 return "You are from South East.";
         }
-        for(String states : southSouth){
+        for(String states : SOUTH_SOUTH.zone){
             if(state.equalsIgnoreCase(states))
                 return "You are from South South.";
         }
-        for(String states : southWest){
+        for(String states : SOUTH_WEST.zone){
             if(state.equalsIgnoreCase(states))
                 return "You are from South West.";
         }
-        for(String states : northEast){
+        for(String states : NORTH_EAST.zone){
             if(state.equalsIgnoreCase(states))
                 return "You are from North East.";
         }
-        for(String states : northWest){
+        for(String states : NORTH_WEST.zone){
             if(state.equalsIgnoreCase(states))
                 return "You are from North West.";
         }

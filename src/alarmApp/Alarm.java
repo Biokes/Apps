@@ -7,30 +7,27 @@ import java.time.LocalTime;
 
 
 public class Alarm {
-    private LocalTime timerCounter = LocalTime.now();
+    private final LocalTime timerCounter = LocalTime.now();
     private LocalTime timeToBeep;
-    public LocalTime getTime() {
+    public LocalTime getTime(){
 
         return LocalTime.now();
     }
     public void setTimer(int minutes){
         if(minutes < 0)
             throw new IllegalArgumentException("illegal argument entered\npls enter a valid number.");
-        LocalTime time = LocalTime.from(timerCounter.plusMinutes(minutes));
-        timeToBeep = time;
+        timeToBeep = LocalTime.from(timerCounter.plusMinutes(minutes));
     }
 
     public String timeToBeep() {
         char []  beepTime = String.valueOf(timeToBeep).toCharArray();
-        String timeToRing = convertTime(beepTime);
-         return timeToRing;
+        return convertTime(beepTime);
     }
 
     public String convertTime(char[] numbers) {
         String output = "";
-        for(int counter = 0; counter <= 4 ;){
+        for(int counter = 0; counter <= 4 ;)
             output += numbers[counter++];
-        }
         return output;
     }
 
@@ -41,16 +38,13 @@ public class Alarm {
     }
 
     public boolean isUserNotified() {
-        if(notifier() ==1 )
-            return true;
-        return false;
+       return notifier() ==1;
+
     }
 
     public boolean isRinging() {
-        if(notifier() == 1 )
-            return true;
+        return notifier() == 1;
 
-        return false;
     }
     public void ring(){
         try{
@@ -59,7 +53,7 @@ public class Alarm {
                 Clip audio = AudioSystem.getClip();
                 audio.open();
                 audio.start();
-                JOptionPane.showInputDialog(null,"preass okay to stop ALARM");
+                JOptionPane.showInputDialog(null,"press okay to stop ALARM");
                 }
 
 
@@ -73,6 +67,8 @@ public class Alarm {
         setTimer(1);
         int count =0;
         while(!timerCounter.equals(timeToBeep)){
+            if(timerCounter.equals(timeToBeep))
+                break;
             System.out.println(count++);
             }
         if(timerCounter.equals(timeToBeep)){
