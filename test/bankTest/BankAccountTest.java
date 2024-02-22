@@ -1,6 +1,7 @@
 package bankTest;
 
 import bank.BankAccount;
+import bank.InsufficientBalanceException;
 import bank.InvalidAmountException;
 import bank.InvalidPinException;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ public class BankAccountTest {
         assertThrows(InvalidAmountException.class,()->acc.deposit(-12));
     }
     @Test
-    void testThatAmountLessThanBalanceCanBeWithdrawn() throws InvalidAmountException {
+    void testThatAmountLessThanBalanceCanBeWithdrawn() throws InvalidAmountException, InsufficientBalanceException {
         BankAccount acc = new BankAccount("joy vic", "1001");
         acc.deposit(500);
         assertEquals(500,acc.checkBalance("1001"));
@@ -56,6 +57,6 @@ public class BankAccountTest {
         BankAccount acc = new BankAccount("joy vic", "1001");
         acc.deposit(500);
         assertEquals(500,acc.checkBalance("1001"));
-        assertThrows(InvalidAmountException.class,()->acc.withdraw(9000,"1001"));
+        assertThrows(InsufficientBalanceException.class,()->acc.withdraw(9000,"1001"));
     }
 }

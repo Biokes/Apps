@@ -1,3 +1,5 @@
+package appsTest;
+
 import chapter4.GeoZones;
 import org.junit.jupiter.api.Test;
 

@@ -8,7 +8,7 @@ import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AlarmTest {
+public class AlarmMain {
     private Alarm alarm = new Alarm();
     private LocalTime time = LocalTime.now();
 
