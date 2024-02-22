@@ -1,4 +1,4 @@
-package fireDrill2;
+package fireDrill1.fireDrill2;
 
 import java.util.Scanner;
 

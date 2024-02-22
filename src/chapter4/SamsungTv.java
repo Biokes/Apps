@@ -5,6 +5,7 @@ public class SamsungTv {
     private int volume;
 
     public boolean isOn() {
+
         return isOn;
     }
 
@@ -47,6 +48,7 @@ public class SamsungTv {
     }
 
     public int getChannels() {
+
         return channel;
     }
 
@@ -58,6 +60,7 @@ public class SamsungTv {
         return String.format("channel is %d", channel);
     }
     public static int getName(){
+
         return 0;
     }
 }

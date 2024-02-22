@@ -1,4 +1,4 @@
-package fireDrill2;
+package fireDrill1.fireDrill2;
 
 public class FireDrill7Test {
     public static void main(String[] args) {

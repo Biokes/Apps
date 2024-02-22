@@ -1,4 +1,4 @@
-package fireDrill2;
+package fireDrill1.fireDrill2;
 import java.util.ArrayList;
 public class FireDrill07 {
     private static final java.util.Scanner input = new java.util.Scanner(System.in);
