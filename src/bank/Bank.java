@@ -87,8 +87,16 @@ public class Bank {
 
     }
     public void removeAccount(int accountNumber, String pin) throws IncorrectAccountNumberException {
-        if(findAccount(accountNumber).isCorrect(pin))
-            customers.remove(findAccount(accountNumber));
+       for(BankAccount acc : customers){
+           if(acc.checkAccountNumber() == accountNumber) {
+               if(!acc.isCorrect(pin)){
+                   throw new InvalidPinException("incporrect pin.");
+               }
+               customers.remove(acc);
+               return;
+           }
+       }
+
         throw new InvalidPinException("Incorrect account Number");
 
     }
@@ -100,90 +108,5 @@ public class Bank {
         }
         throw new IncorrectAccountNumberException("No matching account found.");
     }
-    public void display1(){
-        Bank Mavericks = new Bank("Mavericks.");
-        System.out.println("Welcome to Mavericks Bank PLC.");
-        System.out.println
-                ("""
-                1. create Account
-                2. Deposit
-                3. Transfer
-                4. check Balance
-                5. Check Account Details
-                6. Deactivate Account
-                """);
-        int choice = input.nextInt();
-        switch(choice){
-            case 1:
-                menuOne();
-            case 2:
-                menuTwo();
-            case 3:
-                menuThree();
-        }
-    }
-    private void menuOne(){
-        boolean condition = false;
-       do {
-           try {
-               System.out.println("Enter Your First name: ");
-               String firstName = input.next();
-               System.out.println("Enter Your Last name: ");
-               String lastName = input.next();
-               System.out.println("Enter your desired 4-digits pin for transactions \n(note: that this is private and should not be shared with any one): ");
-               String pin = input.next();
-               BankAccount account = registerCustomer(firstName,lastName,pin);
-               System.out.printf("\nAccount created successfully\nYour Account number is %s👌👌.",account.checkAccountNumber());
-           } catch (IllegalArgumentException error) {
-               System.out.println(error.getMessage());
-               input.close();
-               condition = true;
-           }
-       }while(condition);
-
-    }
-    private void menuTwo(){
-        boolean condition = true;
-        do{
-            try{
-                System.out.println("Enter Account number To Deposit: ");
-                int accNumber = input.nextInt();
-                System.out.println("Enter Deposit Amount in Figure: ");
-                double amount = input.nextDouble();
-                deposit(accNumber,amount);
-                condition = false;
-            }catch(IllegalArgumentException error){
-                System.out.println(error.getMessage());
-            } catch (InvalidAmountException error) {
-                throw new RuntimeException("You Enter an invalid amount.");
-            } catch (IncorrectAccountNumberException error) {
-                throw new RuntimeException("You Enter an invalid amount.");
-            }
-            input.close();
-        }while(condition);
-    }
-    private void menuThree(){
-        boolean condition = true;
-        do{
-            try{
-                System.out.println("Enter your Account Number: ");
-                int accNumber = input.nextInt();
-                System.out.println("Enter Destination Account Number: ");
-                int accNumber2 = input.nextInt();
-                System.out.println("Enter Transfer Amount in Figure: ");
-                double amount = input.nextDouble();
-                System.out.println("Enter you 4-digits pin: ");
-                String pin = input.next();
-                transfer(accNumber,accNumber2,amount, pin);
-                System.out.println("Transaction Succesful.");
-                condition = false;
-            }catch(IllegalArgumentException | InvalidAmountException | IncorrectAccountNumberException |
-                   InsufficientBalanceException error){
-                System.out.println(error.getMessage());
-                input.close();
-            }
-        }while(condition);
-    }
-
 
 }

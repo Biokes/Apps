@@ -53,13 +53,13 @@ public class Alarm {
                 Clip audio = AudioSystem.getClip();
                 audio.open();
                 audio.start();
-                JOptionPane.showInputDialog(null,"press okay to stop ALARM");
+                JOptionPane.showInputDialog("press okay to stop ALARM");
                 }
 
 
         }catch(Exception exception){
 
-            throw new IllegalArgumentException("invalid number");
+            JOptionPane.showInputDialog("invalid number");
         }
     }
     public void alarmClock(){
@@ -69,10 +69,10 @@ public class Alarm {
         while(!timerCounter.equals(timeToBeep)){
             if(timerCounter.equals(timeToBeep))
                 break;
-            System.out.println(count++);
             }
         if(timerCounter.equals(timeToBeep)){
-            System.out.println("Alarm time out!!!!!!!");
+            JOptionPane.showInputDialog(count++);
+            JOptionPane.showInputDialog("Alarm time out!!!!!!!");
             ring();
         }
     }

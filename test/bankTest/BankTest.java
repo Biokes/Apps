@@ -2,7 +2,6 @@
 package bankTest;
 import bank.*;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BankTest {
@@ -186,14 +185,14 @@ public class BankTest {
         assertEquals(0,bank.checkBalance( acc.checkAccountNumber(), "2354"));
         assertEquals(500,acc2.checkBalance("0000"));
     }
-//    @Test
-//    void removeAccount_testAccountISRemoved() throws IncorrectAccountNumberException {
-//        Bank bank = new Bank("zenith");
-//        BankAccount acc =  bank.registerCustomer("bada ","mathew","2354");
-//        assertEquals(1, bank.numberOfCustomers());
-//        bank.removeAccount(acc.checkAccountNumber(),"2354");
-//        assertEquals(0, bank.numberOfCustomers());
-//    }
+    @Test
+    void removeAccount_testAccountISRemoved() throws IncorrectAccountNumberException {
+        Bank bank = new Bank("zenith");
+        BankAccount acc =  bank.registerCustomer("bada ","mathew","2354");
+        assertEquals(1, bank.numberOfCustomers());
+        bank.removeAccount(acc.checkAccountNumber(),"2354");
+        assertEquals(0, bank.numberOfCustomers());
+    }
 
 }
 
