@@ -96,7 +96,12 @@ public class BankApp {
         } while (condition);
 
     }
-    private void menuFour(){
+    private static void menuFour(){
+        int number = Integer.parseInt(JOptionPane.showInputDialog("Enter a number"));
+        JOptionPane.showConfirmDialog(null,new Bank("wema bank"));
+    }
 
+    public static void main(String[] args) {
+        menuFour();
     }
 }

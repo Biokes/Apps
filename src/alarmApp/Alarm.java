@@ -46,15 +46,13 @@ public class Alarm {
         return notifier() == 1;
 
     }
-    public void ring(){
+    public static void ring(){
+        File song = new File("C:\\Users\\DELL\\Downloads\1e745130-695b-40b2-b725-8e8e1c3c6082.wav");
         try{
-            File song = new File("C:\\Users\\DELL\\Downloads\1e745130-695b-40b2-b725-8e8e1c3c6082.wav");
-            if(song.exists()) {
                 Clip audio = AudioSystem.getClip();
                 audio.open();
                 audio.start();
                 JOptionPane.showInputDialog("press okay to stop ALARM");
-                }
 
 
         }catch(Exception exception){
@@ -76,5 +74,7 @@ public class Alarm {
             ring();
         }
     }
+
+
 
 }
