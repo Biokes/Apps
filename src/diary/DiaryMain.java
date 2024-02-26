@@ -2,7 +2,7 @@ package diary;
 
 import javax.swing.*;
 
-public class UserApp {
+public class DiaryMain {
     private static boolean validate(String name){
 
         return name.isBlank();
@@ -107,8 +107,7 @@ public class UserApp {
             diaryMenu();
         }
     }
-    private static void deleteEntry()
-    {
+    private static void deleteEntry() {
         try {
             int id = Integer.parseInt(input("Enter id of Entry to delete"));
             if(diary.isLocked()){
