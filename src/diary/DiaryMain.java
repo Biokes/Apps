@@ -37,7 +37,7 @@ public class DiaryMain {
         diaryMenu();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         homePage();
     }

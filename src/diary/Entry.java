@@ -6,12 +6,13 @@ public class Entry {
     private int id;
     private String body;
     private String title;
-    private LocalDate dateCreated = LocalDate.now();
+    private LocalDate dateCreated;
 
     public Entry(int idNumber, String title, String body) {
         this.body = body;
         this.id = idNumber;
         this.title= title;
+        dateCreated = LocalDate.now();
     }
 
     public String getTitle() {
