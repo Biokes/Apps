@@ -29,13 +29,13 @@ public class DispatchTest {
 
     }
     @Test
-    void testDispatchRiderAppWorksWell(){
-        assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(101));
-        assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(190));
-        assertEquals(6920,Dispatch.wage(12));
-        assertEquals(7400,Dispatch.wage(15));
-        assertEquals(40000,Dispatch.wage(70));
-        assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(-12));
-        assertEquals(5000,  Dispatch.wage(0));
+    void testDispatchRiderAppWorksWell() {
+        assertThrows(InvalidNumberException.class, () -> Dispatch.wage(101));
+        assertThrows(InvalidNumberException.class, () -> Dispatch.wage(190));
+        assertEquals(6920, Dispatch.wage(12));
+        assertEquals(7400, Dispatch.wage(15));
+        assertEquals(40000, Dispatch.wage(70));
+        assertThrows(InvalidNumberException.class, () -> Dispatch.wage(-12));
+        assertEquals(5000, Dispatch.wage(0));
     }
 }
