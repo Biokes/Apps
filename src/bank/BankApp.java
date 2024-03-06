@@ -60,24 +60,22 @@ public class BankApp {
             }
     }
     private void menuTwo(){
-        boolean condition = true;
-        do{
-            try{
-                print("Enter Account number To Deposit: ");
-                int accNumber = input.nextInt();
-                print("Enter Deposit Amount in Figure: ");
-                double amount = input.nextDouble();
-                bank.deposit(accNumber,amount);
-                condition = false;
-            }catch(IllegalArgumentException error){
-                System.out.println(error.getMessage());
-            } catch (InvalidAmountException error) {
-                throw new RuntimeException("You Enter an invalid amount.");
-            } catch (IncorrectAccountNumberException error) {
-                throw new RuntimeException("You Enter an invalid amount.");
-            }
-            input.next();
-        }while(condition);
+        try{
+            print("Enter Account number To Deposit: ");
+            int accNumber = input.nextInt();
+            print("Enter Deposit Amount in Figure: ");
+            double amount = input.nextDouble();
+            bank.deposit(accNumber,amount);
+        }catch(IllegalArgumentException error){
+            System.out.println(error.getMessage());
+            display1();
+        } catch (InvalidAmountException error) {
+            System.out.println(error.getMessage());
+            display1();
+        } catch (IncorrectAccountNumberException error) {
+            System.out.println(error.getMessage());
+            display1();
+        }
     }
     private void menuThree() {
         boolean condition = true;
