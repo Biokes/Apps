@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class Bank {
     private final String bankName;
-    private  List<BankAccount> customers = new ArrayList<>();
-    private  int countUsers = 1009876543;
+    private final List<BankAccount> customers = new ArrayList<>();
+    private final int countUsers = 1009876543;
 
     private final Scanner input = new Scanner(System.in);
 
@@ -64,10 +64,10 @@ public class Bank {
         boolean breaker = false;
             for(int count = 0; count < customers.size();count++) {
                 if (customers.get(count).checkAccountNumber() == senderAccountNumber) {
-                    for (int counter = 0; counter < customers.size(); counter++) {
-                        if ( customers.get(counter).checkAccountNumber() == receiverAccountNumber) {
-                            customers.get(count).withdraw(amount,senderPin);
-                            customers.get(counter).deposit(amount);
+                    for (BankAccount customer : customers) {
+                        if (customer.checkAccountNumber() == receiverAccountNumber) {
+                            customers.get(count).withdraw(amount, senderPin);
+                            customer.deposit(amount);
                             breaker = true;
                         }
                     }
