@@ -33,7 +33,7 @@ public class DiaryMain {
         }
         diary = new Diary(nameAndPassword[0],nameAndPassword[1]);
         diaries.add(nameAndPassword[0],nameAndPassword[1]);
-        print(String.format("%s Entry(s) created successfully.",diary.toString()));
+        print(String.format("%s \nEntry(s) created successfully.",diary.toString()));
         diaryMenu();
     }
 
@@ -49,7 +49,9 @@ public class DiaryMain {
             case "2":
                 print("GoodBye.");
                 System.exit(0);
-        }
+            default:
+                diaryMenu();
+                    }
 
     }
     private static int askToLock(){
@@ -62,15 +64,14 @@ public class DiaryMain {
         try {
             title = input("Enter Entry Title");
             body = input("write what you want to keep in your diary");
-            diary.createEntry(title,body);
-            print(String.format("Entry id: %s is successfully created\n%s"   ,diary.entrySize(),diary.toString()));
+            print(String.format("Entry Details.\n%s",diary.createEntry(title,body)));
             int choice = askToLock();
             if(choice == 0)
                 diary.lockDiary();
             diaryMenu();
         } catch (IllegalArgumentException e) {
-            print("SomeThing went wrong....");
-            createEntry();
+            print(e.getMessage());
+            diaryMenu();
         }
     }
     private static void updateEntry(){
@@ -98,10 +99,12 @@ public class DiaryMain {
         } catch (IllegalArgumentException illegalArgumentException) {
             print("you entered a wrong command");
             diaryMenu();
-        } catch (InvalidUserException invalidUserException) {
+        }
+        catch (InvalidUserException invalidUserException) {
             print("Entry does not exist");
             diaryMenu();
-        } catch (IncorrectPasswordException incorrectPasswordException) {
+        }
+        catch (IncorrectPasswordException incorrectPasswordException) {
             print(incorrectPasswordException.getMessage());
             diaryMenu();
         }
@@ -121,6 +124,7 @@ public class DiaryMain {
             diaryMenu();
         }catch(Exception exception){
             print(exception.getMessage());
+            diaryMenu();
         }
     }
     private static void diaryMenu(){

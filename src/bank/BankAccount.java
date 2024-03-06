@@ -30,11 +30,6 @@ public class BankAccount {
         transactionRecords.add(number);
     }
 
-//    public int getAccountNumber(String pin) {
-//        if(this.pin.equals(pin))
-//            return countUsers;
-//        throw new InvalidPinException("Incorrect pin.");
-//    }
     public double checkBalance(String pin){
         if(!isCorrect(pin))
             throw new InvalidPinException("Incorrect pin.");
@@ -44,7 +39,6 @@ public class BankAccount {
         return total;
 
     }
-
     public void withdraw(double amount, String pin) throws InvalidAmountException, InsufficientBalanceException {
         if(amount < 0)
             throw new InvalidAmountException("Invalid Withdrawal Amount.");
@@ -58,9 +52,11 @@ public class BankAccount {
         this.accountNumber = accountNumber;
 
     }
-
     public boolean isCorrect(String pin) {
         return this.pin.equals(pin);
 
+    }
+    public String toString(){
+        return String.format("Account Name: %s\nAccount Balance: %s");
     }
 }

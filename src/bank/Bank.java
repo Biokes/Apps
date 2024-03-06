@@ -86,14 +86,14 @@ public class Bank {
         return countUsers + numberOfCustomers()+1;
 
     }
-    public void removeAccount(int accountNumber, String pin) throws IncorrectAccountNumberException {
+    public String  removeAccount(int accountNumber, String pin) throws IncorrectAccountNumberException {
        for(BankAccount acc : customers){
            if(acc.checkAccountNumber() == accountNumber) {
                if(!acc.isCorrect(pin)){
                    throw new InvalidPinException("incporrect pin.");
                }
                customers.remove(acc);
-               return;
+               return "Account Successfully Deleted.";
            }
        }
 

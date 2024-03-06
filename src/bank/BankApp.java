@@ -1,6 +1,6 @@
 package bank;
 
-import javax.swing.*;
+
 import java.util.Scanner;
 
 public class BankApp {
@@ -8,7 +8,7 @@ public class BankApp {
     private final Bank bank = new Bank("Zenith Bank.");
     private void print(String output){
 
-        JOptionPane.showInputDialog(output);
+        System.out.println(output);
     }
 
     public void display1(){
@@ -20,7 +20,7 @@ public class BankApp {
                 4. check Balance
                 5. Check Account Details
                 6. Deactivate Account
-                """);
+                7. Exit""");
         int choice = input.nextInt();
         switch(choice){
             case 1:
@@ -31,27 +31,33 @@ public class BankApp {
                 menuThree();
             case 4:
                 menuFour();
+            case 5:
+                menuFive();
+            case 6:
+                menuSix();
+            case 7:
+                System.exit(1000);
+            default:
+                display1();
         }
     }
     private void menuOne(){
-        boolean condition = false;
-        do {
-            try {
-                print("Enter Your First name: ");
-                String firstName = input.next();
-                print("Enter Your Last name: ");
-                String lastName = input.next();
-                print("Enter your desired 4-digits pin for transactions \n(note: that this is private and should not be shared with any one): ");
-                String pin = input.next();
-                BankAccount account = bank.registerCustomer(firstName,lastName,pin);
-                System.out.printf("\nAccount created successfully\nYour Account number is %s👌👌.",account.checkAccountNumber());
-            } catch (IllegalArgumentException error) {
-                print(error.getMessage());
-                input.next();
-                condition = true;
+        try {
+            print("Enter Your First name: ");
+            String firstName = input.next();
+            print("Enter Your Last name: ");
+            String lastName = input.next();
+            print("Enter your desired 4-digits pin for transactions \n(note: that this is private and should not be shared with any one): ");
+            String pin = input.next();
+            BankAccount account = bank.registerCustomer(firstName,lastName,pin);
+            print(String.format("\nAccount created successfully\nYour Account number is %s👌👌.",account.checkAccountNumber()));
+            display1();
             }
-        }while(condition);
-
+            catch (IllegalArgumentException error) {
+            print(error.getMessage());
+            input.next();
+            display1();
+            }
     }
     private void menuTwo(){
         boolean condition = true;
@@ -96,13 +102,45 @@ public class BankApp {
         } while (condition);
 
     }
-    private static void menuFour(){
-        int number = Integer.parseInt(JOptionPane.showInputDialog("Enter a number"));
-        JOptionPane.showConfirmDialog(null,new Bank("wema bank"));
+    private void menuFour(){
+        try {
+            print("Enter account number: ");
+            int number = input.nextInt();
+            print("Enter your pin: ");
+            String pin = input.next();
+            print("Account Balance: " + bank.checkBalance(number, pin));
+            display1();
+        }catch(IncorrectAccountNumberException | InvalidPinException error){
+            print(error.getMessage());
+            display1();
+        }
+
+    }
+    private void menuFive(){
+        try {
+            print("Enter account number: ");
+            int number = input.nextInt();
+            print(bank.findAccount(number).toString());
+            display1();
+    }
+        catch (IncorrectAccountNumberException |IllegalArgumentException e) {
+            print(e.getMessage());
+            display1();
+        }
+    }
+    private void menuSix(){
+        try {
+            print("Enter account number: ");
+            int number = input.nextInt();
+            print("Enter Your Pin: ");
+            String pin = input.next();
+            print(bank.removeAccount(number, pin));
+            display1();
+        }
+        catch (IncorrectAccountNumberException |IllegalArgumentException e) {
+            print(e.getMessage());
+            display1();
+        }
     }
 
-    public static void main(String[] args) {
-
-        menuFour();
-    }
 }

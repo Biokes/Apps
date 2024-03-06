@@ -11,6 +11,7 @@ public class Diary {
     private final String userName;
     private final String password;
     private boolean isLocked;
+    private Entry entry;
     private List<Entry> listOfEntries = new ArrayList<>();
     public String checkUserName() {
 
@@ -37,9 +38,10 @@ public class Diary {
         }
     }
 
-    public void createEntry(String title, String body){
+    public String createEntry(String title, String body){
             Entry entry = new Entry(1+listOfEntries.size(), title,body);
             listOfEntries.add(entry);
+            return entry.toString();
     }
 
     public Entry findEntryById(int idNumber){
@@ -53,12 +55,12 @@ public class Diary {
         throw new IncorrectPasswordException();
     }
 
-    public void updateEntry(int entryId, String title, String body){
+    public String updateEntry(int entryId, String title, String body){
         if(!isLocked)
             for(Entry entry : listOfEntries){
                 if(entry.getIdNumber() == entryId) {
                     entry = new Entry(entryId, title, body);
-                    return;
+                    return entry.toString();
                 }
             }
         throw new InvalidUserException();
