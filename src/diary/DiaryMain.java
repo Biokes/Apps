@@ -17,11 +17,11 @@ public class DiaryMain {
     }
     private static Diaries diaries = new Diaries();
     private static Diary diary;
-    private static void print(String output){
+    public static void print(String output){
 
         JOptionPane.showMessageDialog(null,output);
     }
-    private static String input(String output){
+    public static String input(String output){
 
         return JOptionPane.showInputDialog(null,output);
     }
@@ -63,11 +63,10 @@ public class DiaryMain {
             title = input("Enter Entry Title");
             body = input("write what you want to keep in your diary");
             diary.createEntry(title,body);
-            print(String.format("Entry id: %s is successfully created"   ,diary.entrySize()));
+            print(String.format("Entry id: %s is successfully created\n%s"   ,diary.entrySize(),diary.toString()));
             int choice = askToLock();
-            if(choice == 0){
+            if(choice == 0)
                 diary.lockDiary();
-            }
             diaryMenu();
         } catch (IllegalArgumentException e) {
             print("SomeThing went wrong....");

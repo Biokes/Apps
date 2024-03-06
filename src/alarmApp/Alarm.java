@@ -38,6 +38,7 @@ public class Alarm {
     }
 
     public boolean isUserNotified() {
+
        return notifier() ==1;
 
     }
@@ -67,12 +68,13 @@ public class Alarm {
         while(!timerCounter.equals(timeToBeep)){
             if(timerCounter.equals(timeToBeep))
                 break;
+            if(!timerCounter.equals(timeToBeep)){
+                System.out.println(count++);
+                JOptionPane.showInputDialog("Alarm time out!!!!!!!");
+                ring();
             }
-        if(timerCounter.equals(timeToBeep)){
-            JOptionPane.showInputDialog(count++);
-            JOptionPane.showInputDialog("Alarm time out!!!!!!!");
-            ring();
         }
+
     }
 
 
