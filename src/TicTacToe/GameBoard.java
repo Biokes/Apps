@@ -103,7 +103,9 @@ public class GameBoard {
         System.out.println(printBoard());
         for(int counter = 0; counter < 5; counter++){
             player1Game();
-            if(result() != "") {
+            System.out.println(printBoard());
+            if(result() != "" || result() ==  "Draw") {
+                System.out.println(printBoard());
                 System.out.println((result()));
                break;
             }
