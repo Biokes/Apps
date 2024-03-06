@@ -15,7 +15,7 @@ public class Dispatch {
         return 0;
     }
     public static int wage(int successfulDeliveries){
-        if (successfulDeliveries < 1 || successfulDeliveries > 100)
+        if (successfulDeliveries < 0 || successfulDeliveries > 100)
             throw new InvalidNumberException();
         return (successfulDeliveries * deliveries(successfulDeliveries))+ 5000;
     }

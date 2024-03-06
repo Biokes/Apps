@@ -19,13 +19,13 @@ public class DispatchTest {
     @Test
     void invalidNumberOfDeliveriesThrowsException(){
         assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(-12));
-        assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(0));
+        assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(-123));
     }
     @Test
     void invalidNumberGreaterTHanMaxOfDeliveriesThrowsException_(){
         assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(101));
         assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(190));
-        assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(0));
+        assertEquals(5000,  Dispatch.wage(0));
 
     }
     @Test
@@ -36,6 +36,6 @@ public class DispatchTest {
         assertEquals(7400,Dispatch.wage(15));
         assertEquals(40000,Dispatch.wage(70));
         assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(-12));
-        assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(0));
+        assertEquals(5000,  Dispatch.wage(0));
     }
 }
