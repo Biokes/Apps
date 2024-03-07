@@ -26,7 +26,6 @@ public class DispatchTest {
         assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(101));
         assertThrows(InvalidNumberException.class, ()-> Dispatch.wage(190));
         assertEquals(5000,  Dispatch.wage(0));
-
     }
     @Test
     void testDispatchRiderAppWorksWell() {
