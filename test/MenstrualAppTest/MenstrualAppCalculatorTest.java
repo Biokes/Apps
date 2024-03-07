@@ -32,4 +32,10 @@ public class MenstrualAppCalculatorTest {
         assertThrows(InvalidDateException.class, () -> app.validateDate("12/023/2090"));
     }
 
+    @Test
+    void test_nextCycleDateISGotten() {
+        app.setLastFlowStop("31/12/2023");
+        assertEquals("28/01/2024", app.getNextStart("01/01/2024", 27));
+    }
+
 }
