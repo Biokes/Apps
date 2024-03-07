@@ -1,12 +1,10 @@
 package dispatchRiderTest;
-
 import dispatch.Dispatch;
 import fireDrill1.fireDrill2.InvalidNumberException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
 public class DispatchTest {
     @Test
     void test_DispatchRiderAmountIsCalculated(){
