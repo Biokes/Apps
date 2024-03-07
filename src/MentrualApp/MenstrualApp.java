@@ -12,19 +12,16 @@ public class MenstrualApp {
             throw new InvalidDateException();
         }
     }
-
     private LocalDate convertDate(String day) {
         if (validateDate(day))
             return LocalDate.parse(day, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         return null;
     }
-
     public String getNextStart(String lastDayEnded, int intervalsDate) {
         nextFlowStart = convertDate(lastDayEnded).plusDays(intervalsDate);
         nextFlowStart = nextFlowStart.plusDays(intervalsDate);
         return nextFlowStart.toString();
     }
-
     public void setLastFlowStop(String date) {
         lastFlowStop = convertDate(date);
     }
